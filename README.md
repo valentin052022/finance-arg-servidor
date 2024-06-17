@@ -1,0 +1,2 @@
+# Servidor financeArg | Valentin Peralta 
+## Este servidor hecho con Node, express. Tiene como finalidad, mejorar la obtencion de datos de 2 APIS, mejorando la estructura de datos en las diferentes respuestas para poder consumir desde la web del frontend.
