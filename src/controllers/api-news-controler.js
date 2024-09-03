@@ -1,8 +1,17 @@
-import { getNews } from "../services/service-news.js";
+import {getNewsArg, getNewsGlobal } from "../services/service-news.js";
 
-export const getNewsController = async (req, res) => {
+export const getNewsControllerArg = async (req, res) => {
   try {
-    const news = await getNews();
+    const news = await getNewsArg();
+    return res.status(200).json(news);
+  } catch (error) {
+    return res.status(500).json({ messaje: error.messaje });
+  }
+};
+
+export const getNewsControllerGlobal = async (req, res) => {
+  try {
+    const news = await getNewsGlobal();
     return res.status(200).json(news);
   } catch (error) {
     return res.status(500).json({ messaje: error.messaje });

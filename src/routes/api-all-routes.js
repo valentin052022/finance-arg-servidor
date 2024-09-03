@@ -1,8 +1,11 @@
 import express from "express";
-import { getNewsController } from "../controllers/api-news-controler.js";
-import { getHistoricalDataController } from "../controllers/api-iol-controler.js";
+import {getNewsControllerArg, getNewsControllerGlobal } from "../controllers/api-news-controler.js";
+import { getDataCotizacionController, getHistoricalDataController } from "../controllers/api-iol-controler.js";
 
 export const routes = express.Router();
-
-routes.get("/news",getNewsController);
-routes.get("/:simbolo", getHistoricalDataController);
+// routes of news for frontendFinanceBale
+routes.get("/news/global", getNewsControllerGlobal);
+routes.get("/news/arg", getNewsControllerArg);
+// routes from cotizacion the actives
+routes.get("/instrumento/:instrumento", getDataCotizacionController);
+// routes.get("/:simbolo", getHistoricalDataController);
