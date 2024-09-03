@@ -15,11 +15,17 @@ export const getDataCotizacion = async (instrumento) => {
   }
 
   const data = await responseData.json()
-  const data_estructured = {
-    name: data.simbolo,
-    price: data.ultimoPrecio,
-    nominalVolume: data.volumen,
-  }
+  console.log(data.titulos.length)
+  const data_estructured = data.titulos.map(titulo => ({
+    name: titulo.simbolo,
+    price: titulo.ultimoPrecio,
+    volumen: titulo.volumen
+  }));
+  // const data_estructured = {
+  //   name: data.titulo[simbolo],
+  //   price: data.titulo[ultimoPrecio],
+  //   nominalVolume: data.titulo[volumen],
+  // }
 
   return data_estructured
 };
