@@ -2,10 +2,12 @@ import express from 'express'
 import {config} from 'dotenv'
 import bodyParser from 'body-parser'
 import { routes } from './routes/api-all-routes.js';
+import cors from 'cors';
 
 config();
 const port = process.env.PORT ||8080;
 const app = express()
+app.use(cors({ origin: '*' }));
 
 app.use(bodyParser.json());
 

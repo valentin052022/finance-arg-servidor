@@ -27,14 +27,15 @@ export const getHistoricalDataController = async (req, res) => {
 export const getDataCotizacionController = async (req, res) => {
   try {
     const { instrumento } = req.params;
+    const { page = 1, limit = 10 } = req.query; // Obtén los parámetros de la consulta
 
     if (!instrumento) {
       return res.status(400).json({ message: "Simbolo no encontrado" });
     }
 
-    const dataCotizacion = await getDataCotizacion(instrumento);
+    const dataCotizacion = await getDataCotizacion(instrumento, parseInt(page), parseInt(limit));
 
-    if (!dataCotizacion || dataCotizacion.length === 0) {
+    if (!dataCotizacion || dataCotizacion.data.length === 0) {
       return res.status(404).json({ message: "Datos no encontrados" });
     }
 

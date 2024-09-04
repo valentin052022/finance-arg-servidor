@@ -4,8 +4,8 @@ import { getDataCotizacionController, getHistoricalDataController } from "../con
 
 export const routes = express.Router();
 // routes of news for frontendFinanceBale
-routes.get("/news/global", getNewsControllerGlobal);
 routes.get("/news/arg", getNewsControllerArg);
+routes.get("/news/global", getNewsControllerGlobal);
 // routes from cotizacion the actives
 routes.get("/instrumento/:instrumento", getDataCotizacionController);
-// routes.get("/:simbolo", getHistoricalDataController);
+routes.get("/:simbolo", getHistoricalDataController);
