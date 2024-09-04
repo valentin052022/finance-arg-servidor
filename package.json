@@ -4,6 +4,7 @@
   "main": "src/service.js",
   "type": "module",
   "scripts": {
+    "start": "node src/app.js",
     "dev": "nodemon src/app.js"
   },
   "author": "Valentin Peralta",
